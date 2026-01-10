@@ -1,0 +1,13 @@
+               Animal
+        ---------------------
+        - speciesName
+        - weight
+        - age
+        ---------------------
+        + getDosage()
+        + getFeedSchedule()
+        ---------------------
+                 ▲
+     --------------------------------
+     |              |               |
+ HorseGroup     FelineGroup     RodentGroup
