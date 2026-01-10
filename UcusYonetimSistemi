@@ -1,0 +1,66 @@
+Airline
+---------------------
+- airlineId
+- name
+---------------------
+
+Aircraft
+---------------------
+- aircraftId
+- status (Active / Maintenance)
+---------------------
+
+AircraftType
+---------------------
+- typeName
+- requiredPilotCount
+---------------------
+
+Flight
+---------------------
+- flightId
+- departureTime
+- arrivalTime
+---------------------
+
+Pilot
+---------------------
+- pilotId
+- name
+- experienceLevel
+---------------------
+
+Airport
+---------------------
+- airportId
+- name
+---------------------
+
+Airline
+  |1
+  |--------------------*
+  |                    Flight
+  |
+  |--------------------*
+  |                    Aircraft
+  |
+  |--------------------*
+  |                    Pilot
+
+
+Aircraft
+  |1
+  |--------------------1
+  |                    AircraftType
+
+
+Flight
+  |1              |1
+  |---------------|---------------|
+Aircraft       Pilot          Pilot
+               (Captain)     (Co-Pilot)
+
+Flight
+  |1                    |1
+  |---------------------|---------------------
+Airport (Departure)   Airport (Arrival)
