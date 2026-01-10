@@ -1,0 +1,81 @@
+User
+---------------------
+- userId
+- name
+---------------------
+
+Subscriber
+---------------------
+- creditBalance
+---------------------
+
+NormalUser
+---------------------
+
+Movie
+---------------------
+- movieId
+- title
+- price
+- rentalCreditCost
+- isAvailable
+---------------------
+
+Subscription
+---------------------
+- subscriptionId
+- startDate
+- endDate
+---------------------
+
+CreditTransaction
+---------------------
+- transactionId
+- creditAmount
+- transactionDate
+---------------------
+
+MovieRequest
+---------------------
+- requestId
+- movieName
+- requestDate
+---------------------
+
+User
+  ▲
+  |-----------------
+  |                |
+Subscriber      NormalUser
+
+
+Subscriber
+  |1
+  |--------------------*
+  |                    CreditTransaction
+
+
+Subscriber
+  |1
+  |--------------------1
+  |                    Subscription
+
+
+User
+  |*
+  |--------------------*
+  |                    Movie
+         (Purchase)
+
+
+Subscriber
+  |*
+  |--------------------*
+  |                    Movie
+         (Rental)
+
+
+User
+  |1
+  |--------------------*
+  |                    MovieRequest
