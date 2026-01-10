@@ -1,0 +1,112 @@
+Building
+-------------------------
+- totalFloors : int
+- elevators : List<Elevator>
+- floors : List<Floor>
+-------------------------
+
+Elevator
+-------------------------
+- elevatorId
+- currentFloor
+- capacity
+- direction
+- status
+-------------------------
++ move()
++ stop()
++ openDoors()
++ closeDoors()
+-------------------------
+
+Floor
+-------------------------
+- floorNumber
+-------------------------
+
+ControlPanel
+-------------------------
+- buttons : List<Button>
+-------------------------
+
+<<abstract>> Button
+-------------------------
+- isPressed
+-------------------------
++ press()
+-------------------------
+
+IndicatorLight
+-------------------------
+- isOn
+- direction
+-------------------------
+
+Bell
+-------------------------
++ ring()
+-------------------------
+
+Passenger
+-------------------------
+- startFloor
+- destinationFloor
+-------------------------
+
+ElevatorController
+-------------------------
++ assignElevator()
+-------------------------
+
+Clock
+-------------------------
+- currentTime
+-------------------------
++ tick()
+-------------------------
+
+Simulator
+-------------------------
+- clock : Clock
+-------------------------
++ start()
+-------------------------
+
+RandomGenerator
+-------------------------
++ generatePassenger()
+-------------------------
+
+Building
+  |1
+  |------------------* Elevator
+  |
+  |------------------* Floor
+
+
+Elevator
+  |1
+  |------------------1 ControlPanel
+  |
+  |------------------* Passenger
+
+
+Floor
+  |1
+  |------------------* CallButton
+  |------------------1 Bell
+  |------------------1 IndicatorLight
+
+
+Button
+  ▲
+  |----------------------------
+  |        |        |         |
+Call   Target   Door   Emergency
+
+
+Simulator
+  |1
+  |------------------1 Clock
+  |------------------1 ElevatorController
+  |------------------1 RandomGenerator
